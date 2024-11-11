@@ -3,10 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Page</title>
+    <title>Gre8Gatsby's Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .dashboard {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 40px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+        }
+        .stat-item {
+            background-color: #f8f8f8;
+            border-radius: 5px;
+            padding: 20px;
+            width: 30%;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        .stat-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .stat-item h2 {
+            font-size: 2em;
+            color: #4a90e2;
+            margin: 0;
+        }
+        .stat-item p {
+            color: #888;
+            margin: 5px 0 0;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My GitHub Page</h1>
-    <p>This is my custom GitHub Page.</p>
+    <div class="dashboard">
+        <h1>Welcome to my Dashboard</h1>
+        <div class="stats">
+            <div class="stat-item">
+                <h2>42</h2>
+                <p>Projects</p>
+            </div>
+            <div class="stat-item">
+                <h2>1337</h2>
+                <p>Commits</p>
+            </div>
+            <div class="stat-item">
+                <h2>99%</h2>
+                <p>Satisfaction</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const statItems = document.querySelectorAll('.stat-item');
+            setTimeout(() => {
+                statItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.classList.add('visible');
+                    }, index * 200);
+                });
+            }, 500);
+        });
+    </script>
 </body>
 </html>
